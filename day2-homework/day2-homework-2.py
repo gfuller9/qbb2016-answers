@@ -37,11 +37,13 @@ for i, line in enumerate (target):
         lines[8]=prot_map[name]
         print "\t".join(lines)
     #if not in dictionary, replacing the different ones with options    
-    else: 
+    elif name not in prot_map: 
         if option == "d":
-            lines[8]=["."]
+            lines[8]=sys.argv[4]
+            print "\t".join(lines)
         elif option == "e":
             lines[8] == None
+            print "\t".join(lines)
         
 
 
