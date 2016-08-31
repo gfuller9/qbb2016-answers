@@ -20,8 +20,9 @@ target = open(sys.argv[1])
 source = open(sys.argv[2])
 lengths = []
 
-k = int(sys.argv[3])
 
+k = int(sys.argv[3])
+#make a query dictionary
 kmer_source = {}
 for ident, sequence in fasta.FASTAReader(source):
     sequence = sequence.upper()
@@ -32,9 +33,7 @@ for ident, sequence in fasta.FASTAReader(source):
 
         kmer_source[kmer].append(i)
 
-
-
-#command line arguments
+#make target dictionaries
 
 kmer_position = {}
 for ident, sequence in fasta.FASTAReader(target):
@@ -42,6 +41,7 @@ for ident, sequence in fasta.FASTAReader(target):
     
     #lets you have empty kmer_counts at start of each sequence
     kmer_position = {}
+    #makes each dictionary
     
     for i in range(0, len(sequence)-k):
         kmer = sequence[i : i + k]
@@ -49,22 +49,11 @@ for ident, sequence in fasta.FASTAReader(target):
             kmer_position[kmer] = []
  
         kmer_position[kmer].append(i)
-        
-        
-        
+    #checks dictionaries against each other and prints out the corresponding values
+
     for kmer in kmer_position:
-      
-        
-        
-        
-        
-        
-        
-        
-        
+
         if kmer in kmer_source:
             print "---target sequence name: " + ident + "---\t" + "target starts:\t" + str(kmer_position[kmer]) + "\tquery starts:\t" + str(kmer_source[kmer]) + "\tkmer:\t" + kmer
 
-    #prints out kmers for each of the sequences, and the top 10 for each sequence (because this is nested in the earlier loop)
-    #print kmer_position
 
