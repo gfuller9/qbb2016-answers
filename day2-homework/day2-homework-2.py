@@ -1,9 +1,9 @@
 #!/usr/bin/env python
-#Usage: ./day2-homework-2.py {filename map} {filename target} {-options}
+#Usage: ./day2-homework-2.py {filename map} {filename target} {options} {replacement phrase}
 #options:
-# d     replaces empty mappings with a "." (dot)
+# d     replaces empty mappings with a argument 4 (dot)
 # e     replaces empty mappings with nothing (empty)
-# can only use one option, must have a "-" before option
+# can only use one option; must have an option.  Must have a fourth argument (even if not using d option)
 import sys
 # open arguements
 
@@ -44,6 +44,7 @@ for i, line in enumerate (target):
         elif option == "e":
             lines[8] == None
             print "\t".join(lines)
+       
         
 
 
