@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 
 """
+Makes a histogram of data from a ctab file
+NEED TO CHANGE THE TITLE OF THE GRAPH IN LINE 24
 usage: ./histogram.py <ctab file>
 """
 
