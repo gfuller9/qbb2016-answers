@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+
+#usage: ./day4-lunch.py file(srr072893) file(srr072915)
+#remember to change titles and stuff in the code (lines 36-39)
+
 import sys
 import pandas as pd
 import matplotlib.pyplot as plt
