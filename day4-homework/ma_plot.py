@@ -23,8 +23,8 @@ data2 = df2["FPKM"].values
 
 
 #take logs of these data frames
-logdf1 = np.log2(data1)
-logdf2 =np.log2(data2)
+logdf1 = np.log2(data1 + 1)
+logdf2 =np.log2(data2 + 2)
 #calculate M and A statistics (note M is y, A is x)
 y = logdf1-logdf2
 x = 0.5 * (logdf1 + logdf2)
