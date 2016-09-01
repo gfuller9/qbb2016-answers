@@ -21,7 +21,7 @@ df2_roi = (df["gene_name"]=="Sxl") & (df["FPKM"]>0)
 df_sx=df[df_roi]
 dfp= np.log(df_sx["FPKM"])
 df2_sx = df2[df2_roi]
-df2p = np.log(df2_sx["FPKM"])
+df2p = np.log10(df2_sx["FPKM"])
 #df_for_plot = pd.dataframe(data,index=index, columns = columns)
 #df_for_plot['SRR072893'] = df_sx["SRR072893"]
 #df_for_plot['SRR072915']=df2_sx["SRR072915"]
