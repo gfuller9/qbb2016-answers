@@ -19,16 +19,19 @@ for i, line in enumerate(data):
     
     if fields[2] == "-":
 
-        if fields [4] < 500:
+        if int(fields[4]) < 500:
             print fields[1] + "\t" + str(int(fields[4])+500) + "\t" + str(0) + "\t" + fields[5]
+            
             continue
         else:        
             print fields[1] + "\t" + str(int(fields[4])+500) + "\t" + str(int(fields[4])-500) + "\t" + fields[5]
+           
     elif fields[2]== "+":
-        if fields [5] < 500:
-            print fields[1]+ "\t" + str(0) + "\t" + str(int(fields[3])+500) + "\t" + fields[5]
+        if int(fields[3]) < 500:
+            print fields[1]+ "\t" + str(0) + "\t" + str(int(fields[3])) + "\t" + fields[5]
         else:        
             print fields[1]+ "\t" + str(int(fields[3])-500) + "\t" + str(int(fields[3])+500) + "\t" + fields[5]
+
     else: 
         continue
         
