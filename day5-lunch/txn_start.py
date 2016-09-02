@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 chromosomes = ["X", "Y", "2L", "2R", "3L","3R", "4"]
 data = open(sys.argv[1])
 
-print "chromosome" + "\t" + "start" +"\t"+ "end" + "\t"+ "t_name"
+#print "chromosome" + "\t" + "start" +"\t"+ "end" + "\t"+ "t_name"
 
 for i, line in enumerate(data):
     if i == 0:
