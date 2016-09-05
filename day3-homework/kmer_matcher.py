@@ -2,7 +2,7 @@
 
 """
 finds matching kmers between a single query sequence and a database of targets
-usage: ./day3-homework-1.py <target.fa> <source.fa> k-mer
+usage: ./kmer_matcher.py <target.fa> <source.fa> k-mer
 
 How to keep track of position of target (subset.fa)???
 keys should be kmers from source

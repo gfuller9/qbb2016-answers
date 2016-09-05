@@ -50,20 +50,24 @@ for ident, sequence in fasta.FASTAReader(target):
         kmer = sequence[i : i + k]
         #check if kmer in query dictionary
         if kmer in kmer_source:
+            kmer2 = kmer
+            print kmer2
             
             #checks each position the kmer is in the query
-            for item in kmer_source[kmer]:  
+            for item in kmer_source[kmer2]:  
                 #these are count variables for making sure I don't iterate through into nonexistant string indices   
                 a = k
+                #print item
 
                 b=0
                 #checks if the i+k+n position is in both the query and the target sequence and appends the matching base to each.  Want to be sure the position is in the sequence
+                #There's still a bug at lower kmer values...
                 while len(sequence)>i+a+1:
                     a +=1
                     
-                    if sequence[i+a] == sourcy[item+a]:  
+                    if sequence[(i+a)] == sourcy[(item+a)]:  
                        
-                        kmer = kmer + sequence[i+a]
+                        kmer2 = kmer2 + sequence[i+a]
                         
                     else:
                         break
@@ -71,12 +75,12 @@ for ident, sequence in fasta.FASTAReader(target):
                 while i-b > 0:
                     b+=1
                     if sequence[i-b] == sourcy[item-b]:
-                        kmer = sequence[i-b]+kmer
+                        kmer2 = sequence[i-b]+kmer2
                     else: 
                         break
                 #appends the new kmer
-                matches.append(kmer)
-                length.append(len(kmer))
+                matches.append(kmer2)
+                length.append(len(kmer2))
                 
     #sorts the lengths
     #prints identity, then the sorted kmers
