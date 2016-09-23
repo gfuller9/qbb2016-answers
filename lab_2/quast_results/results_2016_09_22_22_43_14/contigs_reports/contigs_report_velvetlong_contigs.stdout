@@ -1,0 +1,116 @@
+Aligning contigs to reference...
+	Aligning contigs to the reference 
+Parsing coords...
+Loading reference...
+	Loaded [u00096.2__eSCHERICHIA_COLI_k-12_mg1655_COMPLETE_GENOME__4639675_BP_]
+Loading SNPs...
+	Total Regions: 1
+	Total Region Length: 4639675
+Analyzing contigs...
+CONTIG: NODE_1_length_33177_cov_361.166077 (33205bp)
+Top Length: 33205  Top ID: 100.0
+		One align captures most of this contig: 66796 100000 | 33205 1 | 33205 33205 | 100.0 | u00096.2__eSCHERICHIA_COLI_k-12_mg1655_COMPLETE_GENOME__4639675_BP_ NODE_1_length_33177_cov_361.166077
+
+CONTIG: NODE_2_length_7474_cov_361.491028 (7502bp)
+Top Length: 7502  Top ID: 100.0
+		One align captures most of this contig: 59090 66591 | 1 7502 | 7502 7502 | 100.0 | u00096.2__eSCHERICHIA_COLI_k-12_mg1655_COMPLETE_GENOME__4639675_BP_ NODE_2_length_7474_cov_361.491028
+
+CONTIG: NODE_3_length_5563_cov_347.332184 (5591bp)
+Top Length: 5591  Top ID: 100.0
+		One align captures most of this contig: 1 5591 | 1 5591 | 5591 5591 | 100.0 | u00096.2__eSCHERICHIA_COLI_k-12_mg1655_COMPLETE_GENOME__4639675_BP_ NODE_3_length_5563_cov_347.332184
+
+CONTIG: NODE_4_length_5236_cov_387.213898 (5264bp)
+Top Length: 5264  Top ID: 100.0
+		One align captures most of this contig: 20515 25778 | 1 5264 | 5264 5264 | 100.0 | u00096.2__eSCHERICHIA_COLI_k-12_mg1655_COMPLETE_GENOME__4639675_BP_ NODE_4_length_5236_cov_387.213898
+
+CONTIG: NODE_9_length_14518_cov_481.480591 (14546bp)
+Top Length: 14546  Top ID: 100.0
+		Skipping these alignments as insignificant (option --ambiguity-score is set to "0.99"):
+			Skipping alignment  2512285 2513649 | 4743 3379 | 1365 1365 | 99.71 | u00096.2__eSCHERICHIA_COLI_k-12_mg1655_COMPLETE_GENOME__4639675_BP_ NODE_9_length_14518_cov_481.480591
+			Skipping alignment  607219 608585 | 4744 3378 | 1367 1367 | 99.56 | u00096.2__eSCHERICHIA_COLI_k-12_mg1655_COMPLETE_GENOME__4639675_BP_ NODE_9_length_14518_cov_481.480591
+			Skipping alignment  1976527 1976850 | 324 1 | 324 324 | 100.0 | u00096.2__eSCHERICHIA_COLI_k-12_mg1655_COMPLETE_GENOME__4639675_BP_ NODE_9_length_14518_cov_481.480591
+			Skipping alignment  3581895 3582218 | 1 324 | 324 324 | 100.0 | u00096.2__eSCHERICHIA_COLI_k-12_mg1655_COMPLETE_GENOME__4639675_BP_ NODE_9_length_14518_cov_481.480591
+			Skipping alignment  278387 278710 | 324 1 | 324 324 | 99.69 | u00096.2__eSCHERICHIA_COLI_k-12_mg1655_COMPLETE_GENOME__4639675_BP_ NODE_9_length_14518_cov_481.480591
+			Skipping alignment  289858 290181 | 324 1 | 324 324 | 99.69 | u00096.2__eSCHERICHIA_COLI_k-12_mg1655_COMPLETE_GENOME__4639675_BP_ NODE_9_length_14518_cov_481.480591
+			Skipping alignment  1049445 1049768 | 1 324 | 324 324 | 99.69 | u00096.2__eSCHERICHIA_COLI_k-12_mg1655_COMPLETE_GENOME__4639675_BP_ NODE_9_length_14518_cov_481.480591
+		One align captures most of this contig: 5574 20119 | 14546 1 | 14546 14546 | 100.0 | u00096.2__eSCHERICHIA_COLI_k-12_mg1655_COMPLETE_GENOME__4639675_BP_ NODE_9_length_14518_cov_481.480591
+
+CONTIG: NODE_10_length_13359_cov_352.404816 (13387bp)
+Top Length: 13387  Top ID: 100.0
+		One align captures most of this contig: 25780 39166 | 13387 1 | 13387 13387 | 100.0 | u00096.2__eSCHERICHIA_COLI_k-12_mg1655_COMPLETE_GENOME__4639675_BP_ NODE_10_length_13359_cov_352.404816
+
+CONTIG: NODE_25_length_19848_cov_372.981812 (19876bp)
+Top Length: 19876  Top ID: 100.0
+		One align captures most of this contig: 39205 59080 | 1 19876 | 19876 19876 | 100.0 | u00096.2__eSCHERICHIA_COLI_k-12_mg1655_COMPLETE_GENOME__4639675_BP_ NODE_25_length_19848_cov_372.981812
+
+Analyzing coverage...
+Writing SNPs into /Users/cmdb/qbb2016-answers/lab_2/quast_results/results_2016_09_22_22_43_14/contigs_reports/nucmer_output/velvetlong_contigs.used_snps
+	Reference u00096.2__eSCHERICHIA_COLI_k-12_mg1655_COMPLETE_GENOME__4639675_BP_: 7 total alignments. 1 total regions.
+		Region: 1 to 4639675 (4639675 bp)
+			Align 1: 1 5591 NODE_3_length_5563_cov_347.332184 1 5591
+				Negative gap (overlap) between this and next alignment: 5591 to 5574 (-17 bp)
+				Next Alignment: 5574 20119 NODE_9_length_14518_cov_481.480591 14546 1
+
+			Previous gap was negative, modifying coordinates to ignore overlap
+				Moving contig start from 14546 to 14528.
+			Align 2: 5592 20119 NODE_9_length_14518_cov_481.480591 14528 1
+				Gap between this and next alignment: 20119 to 20515 (395 bp)
+				Next Alignment: 20515 25778 NODE_4_length_5236_cov_387.213898 1 5264
+
+			Align 3: 20515 25778 NODE_4_length_5236_cov_387.213898 1 5264
+				Gap between this and next alignment: 25778 to 25780 (1 bp)
+				Next Alignment: 25780 39166 NODE_10_length_13359_cov_352.404816 13387 1
+
+			Align 4: 25780 39166 NODE_10_length_13359_cov_352.404816 13387 1
+				Gap between this and next alignment: 39166 to 39205 (38 bp)
+				Next Alignment: 39205 59080 NODE_25_length_19848_cov_372.981812 1 19876
+
+			Align 5: 39205 59080 NODE_25_length_19848_cov_372.981812 1 19876
+				Gap between this and next alignment: 59080 to 59090 (9 bp)
+				Next Alignment: 59090 66591 NODE_2_length_7474_cov_361.491028 1 7502
+
+			Align 6: 59090 66591 NODE_2_length_7474_cov_361.491028 1 7502
+				Gap between this and next alignment: 66591 to 66796 (204 bp)
+				Next Alignment: 66796 100000 NODE_1_length_33177_cov_361.166077 33205 1
+
+			Align 7: 66796 100000 NODE_1_length_33177_cov_361.166077 33205 1
+			END in gap: 100000 to 4639675 (4539675 bp)
+
+Analysis is finished!
+Founded SNPs were written into /Users/cmdb/qbb2016-answers/lab_2/quast_results/results_2016_09_22_22_43_14/contigs_reports/nucmer_output/velvetlong_contigs.used_snps
+
+Results:
+	Local Misassemblies: 0
+	Misassemblies: 0
+		Relocations: 0
+		Translocations: 0
+		Inversions: 0
+	Misassembled Contigs: 0
+	Misassembled Contig Bases: 0
+	Misassemblies Inter-Contig Overlap: 0
+Uncovered Regions: 0 (0)
+Unaligned Contigs: 0 + 0 part
+Partially Unaligned Contigs with Misassemblies: 0
+Unaligned Contig Bases: 0
+
+Ambiguously Mapped Contigs: 0
+Total Bases in Ambiguously Mapped Contigs: 0
+Note that --allow-ambiguity option was set to "one" and only first alignment per each of these contigs was used.
+
+	Covered Bases: 99353
+
+	SNPs: 0
+	Insertions: 0
+	Deletions: 0
+
+	Positive Gaps: 6
+		Internal Gaps:  0
+		External Gaps:  6
+		External Gap Total:  4540322
+		External Gap Average: 756720
+	Negative Gaps: 1
+		Internal Overlaps:  0
+		External Overlaps:  1
+		External Overlaps Total: -17
+		External Overlaps Average: -17
+	Contigs with Redundant Alignments: 0 (0)

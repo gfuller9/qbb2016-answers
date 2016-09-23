@@ -1,0 +1,41 @@
+Assembly	velvet_contigs	velvetlong_contigs	spades_short_contigs	spades_actual_contigs
+# contigs (>= 0 bp)	311	16	1	128
+# contigs (>= 1000 bp)	0	7	1	4
+# contigs (>= 5000 bp)	0	7	1	0
+# contigs (>= 10000 bp)	0	4	1	0
+# contigs (>= 25000 bp)	0	1	1	0
+# contigs (>= 50000 bp)	0	0	1	0
+Total length (>= 0 bp)	58644	100170	100000	49818
+Total length (>= 1000 bp)	0	99371	100000	5313
+Total length (>= 5000 bp)	0	99371	100000	0
+Total length (>= 10000 bp)	0	81014	100000	0
+Total length (>= 25000 bp)	0	33205	100000	0
+Total length (>= 50000 bp)	0	0	100000	0
+# contigs	12	7	1	20
+Largest contig	998	33205	100000	1737
+Total length	8044	99371	100000	15922
+Reference length	4639675	4639675	4639675	4639675
+GC (%)	50.31	52.56	52.59	51.21
+Reference GC (%)	50.79	50.79	50.79	50.79
+N50	679	19876	100000	718
+N75	542	13387	100000	635
+L50	5	2	1	8
+L75	9	4	1	13
+# misassemblies	0	0	0	1
+# misassembled contigs	0	0	0	1
+Misassembled contigs length	0	0	0	1084
+# local misassemblies	0	0	0	0
+# unaligned contigs	0 + 0 part	0 + 0 part	0 + 0 part	0 + 0 part
+Unaligned length	0	0	0	0
+Genome fraction (%)	0.173	2.141	2.155	0.343
+Duplication ratio	1.000	1.000	1.000	1.000
+# N's per 100 kbp	0.00	0.00	0.00	0.00
+# mismatches per 100 kbp	0.00	0.00	0.00	31.40
+# indels per 100 kbp	0.00	0.00	0.00	0.00
+Largest alignment	998	33205	100000	1737
+Total aligned length	8044	99371	100000	15922
+NA50	679	19876	100000	715
+NGA50	-	-	-	-
+NA75	542	13387	100000	587
+LA50	5	2	1	8
+LA75	9	4	1	14
