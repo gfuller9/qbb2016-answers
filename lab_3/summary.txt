@@ -1,0 +1,16 @@
+This is my summary!
+
+Many were intron variants and ignored as Li et al ignored anything that wasn't an exome (i.e., ignoring intron variants and intergenic variants and 3'UTR variants, upstream gene variants).  I also ignored synonymous mutations.
+
+For variant 183, I got several genes that pass the filter:
+
+
+
+chr11	77962948 was a missense mutation in Sez6 as was chr11	77975319	.	G	A.
+
+
+For variant 1449:
+chr11	77975323	.	T	C was a missense variant in Sez6.
+
+For variant 1526:
+chr11	77975319	.	G	A was a missense variant in Sez6
