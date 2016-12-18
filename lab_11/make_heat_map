@@ -1,0 +1,176 @@
+#!/usr/bin/env python
+import pylab
+import sys
+import scipy
+
+import numpy as np
+
+import matplotlib.pyplot as plt
+import scipy.cluster.hierarchy as sch
+import scipy.spatial.distance as dist
+import scipy.cluster.vq as vq
+myfile = open(sys.argv[1])
+
+my_data = []
+
+dat_matrix = []
+
+row_headers = []
+for i , item in enumerate(myfile):
+	if i == 0:
+		continue
+	else:
+		lines = item.rstrip("\r\n").split("\t")
+		my_data.append([lines[1],lines[2],lines[3],lines[4],lines[5],lines[6]])
+        row_headers.append(lines[0])
+        dat_matrix.append([float(x) for x in lines[1:]])
+length = len(my_data)
+#get position of the most enriched; it's at position 9
+myfile = open(sys.argv[1])
+#for i, item in enumerate(myfile):
+#    lines = item.rstrip("\r\n").split("\t")
+#    print lines
+#    
+#    if lines[0] == '2310046K01Rik':
+#        print str(i) + "\t" + lines[0]
+
+dat_matrix = np.array(dat_matrix)
+
+my_dist = dist.pdist(dat_matrix,'euclidean')
+
+linkage_matrix = sch.linkage(my_dist)
+
+heat_map_order = sch.leaves_list(linkage_matrix)
+
+ordered_dat_matrix = dat_matrix[heat_map_order,:]
+
+#row_headers = np.array(row_headers)
+new_order = heat_map_order.tolist()
+orderedrow_headers = []
+
+for i, item in enumerate(new_order):
+    orderedrow_headers.append(row_headers[item - 1])
+columns = ['CFU','Poly','Unk','Int','Mys','Mid']
+plt.figure(figsize = (20,20))
+
+
+plt.pcolor(ordered_dat_matrix,cmap = 'Reds')
+row_labels = orderedrow_headers
+column_labels = columns
+plt.xticks(range(ordered_dat_matrix.shape[1]),columns)
+plt.yticks(range(500),row_labels, size = 4)
+plt.savefig('hierarchical_heat_map.tiff')
+plt.close()
+
+plt.figure(figsize = (20, 20))
+my_dendro = sch.dendrogram(linkage_matrix, orientation = 'left', labels = orderedrow_headers, leaf_font_size = 3)
+
+plt.savefig('dendro_first_way.tiff')
+plt.close()
+
+dat_matrix = dat_matrix.transpose()
+
+my_dist = dist.pdist(dat_matrix,'euclidean')
+
+linkage_matrix = sch.linkage(my_dist)
+
+heat_map_order = sch.leaves_list(linkage_matrix)
+
+ordered_dat_matrix = dat_matrix[heat_map_order,:]
+
+#row_headers = np.array(row_headers)
+new_order = heat_map_order.tolist()
+orderedrow_headers = []
+columns = row_headers
+row_headers = ['CFU','Poly','Unk','Int','Mys','Mid']
+for i, item in enumerate(new_order):
+    orderedrow_headers.append(row_headers[item - 1])
+
+plt.figure(figsize=(20,20))
+
+
+plt.pcolor(ordered_dat_matrix,cmap = 'Reds')
+row_labels = orderedrow_headers
+column_labels = columns
+plt.xticks(range(500),columns, size = 4, rotation = 'vertical')
+plt.yticks(range(6),row_labels, size = 20 )
+
+plt.savefig('hierarchical_heat_map_other_way.tiff')
+plt.close()
+plt.figure()
+my_dendro1 = sch.dendrogram(linkage_matrix, orientation = 'left', labels = orderedrow_headers)
+plt.savefig('dendro_second_way.tiff')
+
+plt.close()
+#calculate enrichment normalized to first timepoint
+
+
+#THE K-MEANS
+myfile = open(sys.argv[1])
+
+my_data = []
+
+dat_matrix = []
+
+row_headers = []
+for i , item in enumerate(myfile):
+	if i == 0:
+		continue
+	else:
+		lines = item.rstrip("\r\n").split("\t")
+		my_data.append([lines[1],lines[2]])
+        row_headers.append(lines[0])
+        dat_matrix.append([float(x) for x in lines[1:]])
+dat_matrix = np.array(dat_matrix)
+initial = []
+my_normalized_matrix = vq.whiten(dat_matrix)
+
+#Elbow method
+'''for i in range(1,10):
+    initial.append(vq.kmeans(my_normalized_matrix,i))
+for item in initial:
+    print item
+variance = []
+for (cent,var) in initial:
+    variance.append(var)
+for item in variance:
+    print item
+
+y = (1,2,3,4,5,6,7,8,9)
+
+plt.figure()
+plt.plot(y,variance)
+plt.savefig('elbow.png')
+plt.close()'''
+
+    
+
+codebook, distortion = vq.kmeans(my_normalized_matrix,k_or_guess = 4)
+
+assignment = vq.vq(dat_matrix,codebook)
+color = assignment[0].astype(np.float)
+#print color
+positions_similar_to_most_enriched = []
+for i, item in enumerate(color):
+    if item == color[8]:
+        positions_similar_to_most_enriched.append(i)
+
+#print positions_similar_to_most_enriched
+
+myfile = open(sys.argv[1])
+genes = []
+for item in myfile:
+    lines = item.rstrip("\r\n").split("\t")
+    genes.append(lines[0])
+for item in positions_similar_to_most_enriched:
+    print genes[int(item)+1]
+    
+
+plt.figure()
+plt.scatter(dat_matrix[:,0],dat_matrix[:,1],c=color)
+plt.savefig('kmeans.png')
+plt.close()
+
+
+#for item in my_kmeans:
+#    print item

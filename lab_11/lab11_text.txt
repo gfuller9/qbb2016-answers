@@ -1,0 +1,55 @@
+Hi.
+
+It looks like there are 4 blocks based on the hierarchical clustering (one of which encompasses more than half of the dataset).  So, I will use 4 blocks for the K-means.
+
+It doesn't look like k-means is appropriate here.  There are 2 clusters (red and dark blue) that appear to be appropriate.  However, the light blue overlaps a lot with the red and the yellow is clearly multiple clusters.  Therefore, the clustering with k-means didn't really work.
+
+So, they used a p-value of 0.05 cutoff along with an additional filter of ratio change.  If a gene had greater than or equal to 2.0 fold enrichment or 0.5 fold anti-enrichment (is that a word?), they considered it differentially expressed.
+It looks to me like the earliest two are CFU and MYS.  The latest are POLY and UNK.
+
+The genes that came out:
+2310046K01Rik
+Rragd
+Itga7
+Fn3k
+Tubb1
+Cpne9
+Matn1
+Dhrs3
+Abcb9
+Tnfrsf13c
+Trp53inp1
+Tmem88b
+Ctsf
+Adcy6
+Hyal1
+Dusp8
+Capn5
+Tcp11l1
+Trp53inp2
+Creb3l3
+Cpeb2
+Rcn3
+Crlf1
+Tbx6
+Tubb3
+1600014C23Rik
+Gdpd1
+Fam57b
+Rsc1a1
+Tulp2
+Fbxo44
+Sema6c
+Fhdc1
+
+
+Panther output for the MOST ENRICHED GENE:
+ 	MOUSE|MGI=MGI=1916948|UniProtKB=Q9D6X5 	SLC52A3
+	Solute carrier family 52, riboflavin transporter, member 3
+Slc52a3
+ortholog 	SOLUTE CARRIER FAMILY 52, RIBOFLAVIN TRANSPORTER, MEMBER 3 (PTHR12929:SF13) 	G-protein coupled receptor 	Mus musculus
+
+Since this is a GPCR, it is most likely involved in signaling of some sort (the name in our dataset was not the PANTHER recognized name).  Specifically, it is involved in transporting riboflavin.  This is odd as this protein should be constitutively expressed.  Riboflavin is a necessary cofactor in some metabolic processes.  Perhaps some of these differentiated cells are more metabolically active or are involved in distributing riboflavin throughout the body of the organism.  Most of the literature describes phenotypes including neurological conditions in humans with mutations in this gene.  It is an essential gene, and therefore difficult to study.  It seems to be the product of differentiation rather than something that causes differentiation based on these observations.  The larger scale panther search identified a lot of genes involved in signaling, so those are likely part of what is driving differentiations.
+
+Panther output:
+MOUSE|MGI=MGI=1340030|UniProtKB=Q9JM58 Crlf1 Cytokine receptor-like factor 1;Crlf1;ortholog CYTOKINE RECEPTOR-LIKE FACTOR 1 (PTHR23036:SF126) cytokine;defense/immunity protein Mus musculus MOUSE|MGI=MGI=2684972|UniProtKB=Q3ULZ2 Fhdc1 FH2 domain-containing protein 1;Fhdc1;ortholog FH2 DOMAIN-CONTAINING PROTEIN 1 (PTHR23213:SF290) non-motor actin binding protein Mus musculus MOUSE|MGI=MGI=1861729|UniProtKB=Q9JJ59 Abcb9 ATP-binding cassette sub-family B member 9;Abcb9;ortholog ATP-BINDING CASSETTE SUB-FAMILY B MEMBER 9 (PTHR24221:SF340) Mus musculus MOUSE|MGI=MGI=1926834|UniProtKB=Q9ER35 Fn3k Fructosamine-3-kinase;Fn3k;ortholog FRUCTOSAMINE-3-KINASE (PTHR12149:SF12) Mus musculus MOUSE|MGI=MGI=1100859|UniProtKB=O08688 Capn5 Calpain-5;Capn5;ortholog CALPAIN-5 (PTHR10183:SF362) annexin;calmodulin;cysteine protease Mus musculus MOUSE|MGI=MGI=1915978|UniProtKB=Q8CFU8 Trp53inp2 Tumor protein p53-inducible nuclear protein 2;Tp53inp2;ortholog TUMOR PROTEIN P53-INDUCIBLE NUCLEAR PROTEIN 2 (PTHR31671:SF6) Mus musculus MOUSE|MGI=MGI=106626|UniProtKB=O09112 Dusp8 Dual specificity protein phosphatase 8;Dusp8;ortholog DUAL SPECIFICITY PROTEIN PHOSPHATASE 8 (PTHR10159:SF406) Mus musculus MOUSE|MGI=MGI=107814|UniProtKB=A2AQ07 Tubb1 Tubulin beta-1 chain;Tubb1;ortholog TUBULIN BETA-1 CHAIN (PTHR11588:SF185) tubulin Mus musculus MOUSE|MGI=MGI=1338032|UniProtKB=Q9WTM3 Sema6c Semaphorin-6C;Sema6c;ortholog SEMAPHORIN-6C (PTHR11036:SF121) membrane-bound signaling molecule Mus musculus MOUSE|MGI=MGI=96298|UniProtKB=Q91ZJ9 Hyal1 Hyaluronidase-1;Hyal1;ortholog HYALURONIDASE-1 (PTHR11769:SF33) glycosidase;receptor Mus musculus MOUSE|MGI=MGI=2442640|UniProtKB=Q812E0 Cpeb2 Cytoplasmic polyadenylation element-binding protein 2;Cpeb2;ortholog CYTOPLASMIC POLYADENYLATION ELEMENT-BINDING PROTEIN 2 (PTHR12566:SF15) mRNA polyadenylation factor Mus musculus MOUSE|MGI=MGI=107813|UniProtKB=Q9ERD7 Tubb3 Tubulin beta-3 chain;Tubb3;ortholog TUBULIN BETA-3 CHAIN (PTHR11588:SF174) tubulin Mus musculus MOUSE|MGI=MGI=2443052|UniProtKB=Q1RLL3 Cpne9 Copine-9;Cpne9;ortholog COPINE-9 (PTHR10857:SF79) membrane traffic protein Mus musculus MOUSE|MGI=MGI=1919299|UniProtKB=Q9D8D0 Tnfrsf13c Tumor necrosis factor receptor superfamily member 13C;Tnfrsf13c;ortholog TUMOR NECROSIS FACTOR RECEPTOR SUPERFAMILY MEMBER 13C (PTHR20437:SF5) Mus musculus MOUSE|MGI=MGI=1913819|UniProtKB=Q9CRY7 Gdpd1 Glycerophosphodiester phosphodiesterase domain-containing protein 1;Gdpd1;ortholog GLYCEROPHOSPHODIESTER PHOSPHODIESTERASE DOMAIN-CONTAINING PROTEIN 1 (PTHR42758:SF1) esterase;phosphodiesterase Mus musculus MOUSE|MGI=MGI=1277122|UniProtKB=Q8BH97 Rcn3 Reticulocalbin-3;Rcn3;ortholog RETICULOCALBIN-3 (PTHR10827:SF67) calmodulin Mus musculus MOUSE|MGI=MGI=1916202|UniProtKB=Q7TNV1 Fam57b Protein FAM57B;Fam57b;ortholog PROTEIN FAM57B (PTHR13439:SF35) Mus musculus MOUSE|MGI=MGI=1861434|UniProtKB=Q9R013 Ctsf Cathepsin F;Ctsf;ortholog CATHEPSIN F (PTHR12411:SF425) cysteine protease Mus musculus MOUSE|MGI=MGI=1861600|UniProtKB=P46686 Tulp2 Tubby-related protein 2;Tulp2;ortholog TUBBY-RELATED PROTEIN 2 (PTHR16517:SF70) Mus musculus MOUSE|MGI=MGI=1354744|UniProtKB=Q8BK26 Fbxo44 F-box only protein 44;Fbxo44;ortholog F-BOX ONLY PROTEIN 44 (PTHR12125:SF18) Mus musculus MOUSE|MGI=MGI=3526447|UniProtKB=Q9ER99 Rsc1a1 Regulatory solute carrier protein family 1 member 1;Rsc1a1;ortholog REGULATORY SOLUTE CARRIER PROTEIN FAMILY 1 MEMBER 1 (PTHR15397:SF3) carbohydrate transporter;cation transporter Mus musculus MOUSE|MGI=MGI=2444329|UniProtKB=Q3TYP4 Tmem88b Transmembrane protein 88B;Tmem88b;ortholog TRANSMEMBRANE PROTEIN 88B (PTHR28628:SF4) Mus musculus MOUSE|MGI=MGI=102539|UniProtKB=P70327 Tbx6 T-box transcription factor TBX6;Tbx6;ortholog T-BOX TRANSCRIPTION FACTOR TBX6 (PTHR11267:SF153) nucleic acid binding;transcription factor Mus musculus MOUSE|MGI=MGI=106591|UniProtKB=P51942 Matn1 Cartilage matrix protein;Matn1;ortholog CARTILAGE MATRIX PROTEIN (PTHR11132:SF163) receptor;transporter Mus musculus MOUSE|MGI=MGI=1919490|UniProtKB=Q9DAX4 1600014C23Rik Protein 1600014C23Rik;1600014C23Rik;ortholog Mus musculus MOUSE|MGI=MGI=2444263|UniProtKB=Q8BTG3 Tcp11l1 T-complex protein 11-like protein 1;Tcp11l1;ortholog T-COMPLEX PROTEIN 11-LIKE PROTEIN 1 (PTHR12832:SF22) receptor Mus musculus MOUSE|MGI=MGI=1926609|UniProtKB=Q9QXE4 Trp53inp1 Tumor protein p53-inducible nuclear protein 1;Trp53inp1;ortholog TUMOR PROTEIN P53-INDUCIBLE NUCLEAR PROTEIN 1 (PTHR31671:SF5) Mus musculus MOUSE|MGI=MGI=1315215|UniProtKB=O88876 Dhrs3 Short-chain dehydrogenase/reductase 3;Dhrs3;ortholog SHORT-CHAIN DEHYDROGENASE/REDUCTASE 3 (PTHR24322:SF696) dehydrogenase;reductase Mus musculus MOUSE|MGI=MGI=102700|UniProtKB=Q61738 Itga7 Integrin alpha-7;Itga7;ortholog INTEGRIN ALPHA-7 (PTHR23220:SF96) Mus musculus MOUSE|MGI=MGI=87917|UniProtKB=Q01341 Adcy6 Adenylate cyclase type 6;Adcy6;ortholog ADENYLATE CYCLASE TYPE 6 (PTHR11920:SF361) adenylate cyclase;guanylate cyclase Mus musculus MOUSE|MGI=MGI=1098604|UniProtKB=Q7TT45 Rragd Ras-related GTP-binding protein D;Rragd;ortholog RAS-RELATED GTP-BINDING PROTEIN D (PTHR11259:SF11) small GTPase Mus musculus MOUSE|MGI=MGI=2384786|UniProtKB=Q91XE9 Creb3l3 Cyclic AMP-responsive element-binding protein 3-like protein 3;Creb3l3;ortholog CYCLIC AMP-RESPONSIVE ELEMENT-BINDING PROTEIN 3-LIKE PROTEIN 3 (PTHR22952:SF229) CREB transcription factor;nucleic acid binding Mus musculus 
