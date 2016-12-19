@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quantitative Biology Lab Week 8</title>
+
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+  <header class="navbar navbar-default navbar-fixed-top" id="top">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="/cmdb-lab/" class="navbar-brand">Quantiative Biology Lab Fall 2016</a>
+      </div>
+      <div>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resources <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-header">Command line cheatsheets</li>
+              <li><a href="/cmdb-bootcamp/cheatsheet/unix.html">Unix</a></li>
+              <li><a href="/cmdb-bootcamp/cheatsheet/git.html">Git</a></li>
+              <li><a href="/cmdb-bootcamp/cheatsheet/git_recipes.html">Git Recipes</a></li>
+              <li role="separator" class="divider"></li>
+              <li class="dropdown-header">Plotting</li>
+              <li><a href="/cmdb-bootcamp/gallery/README.html">Plot Gallery</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+
+  <div class="container">
+    <div class="page-header"></div>
+    <div class="row">
+      <div class="col-lg-12">
+        <h2 id="d-genome">3D Genome</h2>
+
+<p>The goal of today’s lab is to learn how to analyze high-throughput chromosome conformation capture data. In particular we will use data from the paper <a href="http://www.nature.com/nature/journal/v485/n7398/full/nature11049.html"> Spatial partitioning of the regulatory landscape of the X-inactivation centre</a>. We will use the <b>HiFive</b> package to normalize raw count data. We will then use this data to look for pairs of occupied CTCF binding sites that show strong interaction.</p>
+
+<h3 id="introducing-virtualenv">Introducing virtualenv</h3>
+
+<p>As our Python projects are getting more complex, it can be important to control exactly what packages are available to your program. Some of you have had issues with conflicts between packages. The <tt>virtualenv</tt> package allows us to create isolated python environments for different projects.</p>
+
+<p>First, install virtualenv globally using <tt>sudo pip install virtualenv</tt>. Now you can create a new virtualenv by running <tt>virtualenv venv</tt>. The name <i>venv</i> can be anything you want, and a directory with this name will be created. To make the virtualenv active for the current shell, run <tt>source ./venv/bin/activate</tt>. Once you are done, you can deactivate it by running <tt>deactivate</tt>.</p>
+
+<p>The <i>pip</i> package is installed in the virtualenv by default, and now pip can be used to install other packages in the environment.</p>
+
+<h3 id="getting-data">Getting data</h3>
+
+<p>The following datasets have been prepared for you to download:</p>
+
+<ul>
+  <li>
+    <p><a href="http://jamestaylor.org/outgoing/Nora_Primers.bed">Nora_Primers.bed</a>: contains the 5C primers that were interrogated by the study in question. Note that the names allow you to distinguish forward from reverse primers.</p>
+  </li>
+  <li>
+    <p><a href="http://jamestaylor.org/outgoing/Nora_ESC_male_E14.counts">Nora_ESC_male_E14.counts</a>: raw counts from aligning sequencing reads back to the primer sequences. These are produced by independently aligning paired ends to a library of the primer sequences and then counting how many mapped for each pair of primers.</p>
+  </li>
+  <li>
+    <p><a href="http://jamestaylor.org/outgoing/ctcf_peaks.tsv">ctcf_peaks.tsv</a>: Locations of CTCF binding determined by ChIP-seq in ES cells.&lt;/li&gt;</p>
+  </li>
+</ul>
+
+<h3 id="normalizing-data">Normalizing data</h3>
+
+<p>Now that we have the data we will process it with HiFive to remove primer specific biases. First, we must install pillow, h5py and HiFive into our virtualenv. Run <tt>pip install pillow h5py</tt> and then <tt>pip install https://github.com/bxlab/hifive/archive/master.zip</tt> to install the latest HiFive.</p>
+
+<p>Now we can use the <tt>hifive</tt> command line utility to process the data. <tt>hifive -h</tt> will print documentation to the console. We can perform most of the analysis in one shot using <tt>hifive 5c-complete</tt>. Again, <tt>hifive 5c-complete -h</tt> will document the command. Further questions can be answered by looking at the <a href="http://bxlab-hifive.readthedocs.io/en/latest/">documentation</a>. Use the <i>express</i> correction method. I would suggest using the -P option, this will generate multiple files.</p>
+
+<h3 id="heatmaps">Heatmaps</h3>
+
+<p>The <tt>hifive 5c-heatmap</tt> command will reformat the interaction data in heatmap format. For example, the command <tt>hifive 5c-heatmap Nora_Out.fcp Out.heat -i Out.png -d fragment</tt> will create an image “Out.png” as well as a data file containing the interactions corrected for primer effect. By default it will bin the data into 10kb bins. Unbinned (single fragment-resolution) heatmaps can be produced by using a binsize of 0. Produce data files for both “fragment” and “enrichment” data-types (-d parameter).</p>
+
+<h3 id="ctcf-interactions">CTCF Interactions</h3>
+
+<p>Using the heatmap produced for “enrichment” find all fragments that overlap a CTCF site. For each, find the paired fragment also containing a CTCF site for which the interaction level is strongest.</p>
+
+<p>The output file from running <tt>hifive 5c-heatmap</tt> is in a generic format for storing large datasets called HDF5. The h5py module allows you to access this file. In particular, <i>h5py.File</i> allows you to access this data as if it were a dictionary of arrays. One tricky bit of syntax for interacting with HDF5 files in python is that in order to copy the data from the HDF5 dictionary into memory, you need to use “…”. e.g.</p>
+
+<pre>&gt;&gt;&gt; import h5py
+&gt;&gt;&gt; file = h5py.File("Out.heat")
+&gt;&gt;&gt;file.keys()
+[u'0.counts', u'0.expected', u'0.positions', u'regions']
+&gt;&gt;&gt;counts = file['0.counts'][...]</pre>
+
+<p>0.counts contains square matrix of interactions, 0.positions contains the bounds of each bin, 0.expected contains the modeled counts in the absence of biological interactions, and regions contains the overall genomic position for each region (in our case there is only one region). In order to calculate enrichments you will need to take the log of the counts divided by the expected. However this only works for bin or fragment pairs that don’t have zero reads! You will need to make sure to only work with bin or fragment pairs that actually have data.</p>
+
+<h3 id="submit">Submit</h3>
+
+<p>For each CTCF-containing fragment in the region, which other fragment does it most strongly interact with. Also, heatmap images. Submit the coordinates of each CTCF-containing fragment and its strongest partner or, for brownie points, the names of each fragment and its partner (found in the Primer bed file).</p>
+
+      </div>
+    </div>
+  </div>
+
+  </body>
+</html>
